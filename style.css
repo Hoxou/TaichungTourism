@@ -282,13 +282,18 @@ section{
         padding:10px 0px;
         height: auto;
     }
+
+    .logo-container {
+        width:100%;
+        display: flex;
+        justify-content: center;
+    }
+
     .logo-container img{
         height:65px;
     }
     .logo{
-        font-size: 18px;
-        margin-left: 5px;
-        line-height: 65px;
+        display: none;
     }
     nav{
         margin:10px 0px;
@@ -302,12 +307,12 @@ section{
     }
 
     .nav-link{
-        line-height: 75px;
+        line-height: 50px;
         width: 100%;
     }
 
     .main-title{
-        font-size: 75px;
+        font-size: 65px;
         top:25%
     }
 
