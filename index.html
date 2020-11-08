@@ -1,0 +1,215 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--Link to font-->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+		rel="stylesheet">
+
+	<!--Link to css and images-->
+	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./assets/">
+
+	<!--Leaflet map-->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+		crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		crossorigin="">
+		</script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<title>台中5可觀景點</title>
+</head>
+
+<body>
+	<!--Nav-->
+	<header>
+		<div class="logo-container">
+			<img src="./assets/logo.png" alt="logo">
+			<h4 class="logo">台中觀景</h4>
+		</div>
+		<nav>
+			<ul class="nav-links">
+				<li><a class="nav-link" href="#">景點</a></li>
+				<li><a class="nav-link" href="#food">美食</a></li>
+				<li><a class="nav-link" href="#">住宿</a></li>
+				<li><a class="nav-link" href="#event">節慶</a></li>
+			</ul>
+		</nav>
+	</header>
+
+
+
+
+
+
+	<main>
+		<div class="main-bg-container">
+			<h1 class="main-title">台中歡迎您!</h1>
+			<a href="#food"><button class="btn-bg">多了解</button></a>
+		</div>
+
+		<!--Food-->
+		<section id="food">
+			<div class="subtitle-container">
+				<img src="./assets/losange.svg" alt="losange">
+				<h1 class="subtitle">美食</h1>
+			</div>
+
+			<div class="food-content">
+				<div class="list-container">
+					<ul id="food-lists">
+						<!-- DATA HERE-->
+					</ul>
+				</div>
+				<div class="map-container">
+					<div id="mapid"></div>
+				</div>
+			</div>
+		</section>
+
+		<!--EVENT-->
+		<section id="event">
+			<div class="subtitle-container">
+				<img src="./assets/losange.svg" alt="losange">
+				<h1 class="subtitle">節慶</h1>
+			</div>
+			<img id='topo' src="./assets/topography.svg" alt="topo">
+			<div class="event-content">
+				<img id='topo' src="./assets/topography.svg" alt="topo">
+				<div class="event-content-text">
+					<h3>大甲媽祖遶境</h3>
+					<p>
+						17世紀以來，媽祖隨著閩南一帶的移民信眾分靈來臺奉祀後，即成為臺灣民間百姓普遍的信仰。臺灣各地共有870餘間媽祖廟，每逢農曆3月媽祖誕辰，全臺各地如臺中市大甲鎮瀾宮、彰化縣鹿港天后宮、雲林縣北港朝天宮、嘉義縣新港奉天宮、臺南市大天后宮等廟宇都會擴大舉辦祭祀、進香、遶境等活動，每年來回徒步約340公里，其中尤以臺中市大甲鎮瀾宮的媽祖遶境，歷史最久且規模最盛大。<br />
+
+						每年的大甲媽祖遶境進香發展成臺灣民間信仰中最廣受歡迎注目的活動之一，並被列為中華民國無形文化資產民俗類重要民俗之一。
+					</p>
+				</div>
+				<div class="event-content-video">
+					<iframe width="60%" height="600px" src="https://www.youtube.com/embed/SeWc54tSfE0" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+				</div>
+			</div>
+		</section>
+		<footer class="footer">
+			<h4 class="copyright">Copyright 2020 - Victor Toupar</h4>
+		</footer>
+	</main>
+</body>
+<script>
+	var mymap = L.map('mapid').setView([24.1855881, 120.6054924], 13);
+
+	L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=XYW7TFUnjmKHsvlOHHtD', {
+		attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+	}).addTo(mymap);
+
+
+
+
+	var restaurants = [
+		["保正軒", 24.2219073, 120.5760818],
+		["一笈壽司", 24.1507583, 120.6494818],
+		["漢來蔬食", 24.1555262, 120.6596068],
+		["空也素麵食", 24.1636558, 120.6327588],
+	];
+
+	for (var i = 0; i < restaurants.length; i++) {
+		marker = new L.marker([restaurants[i][1], restaurants[i][2]])
+			.bindPopup(restaurants[i][0])
+			.addTo(mymap);
+	}
+
+
+
+
+
+
+
+	var locations = [
+		{
+			'name': '保正軒',
+			'image': './assets/location1.jpg',
+			'description': '原名[完食行動餐車]，是一間超人氣料理店。如今!他在北勢東路開店營業了!!!餐點種類主要分[咖哩飯、燒肉丼飯、拉麵]三種，目前由於人手不足、暫時停止供應拉麵，會在廚房人手充足時回復供應。價格十分親民，一碗蒜香奶油牛丼只要99、最便宜的完食咖哩也只要59，食量大的人可以選擇超大碗超划算的 `厚切咖哩豬排飯`，才150元、分量十足，並且不論你點什麼，味增湯都能喝到飽! 並且就距離靜宜大學非常近!讀靜宜的大學生、來沙鹿玩的人有機會請務必去一次!',
+		},
+		{
+			'name': '一笈壽司',
+			'image': './assets/location2.jpg',
+			'description': '堅持現點現做供應最新鮮的食材，兼顧「色、香、味、形、器」的整體表現，導入純蔬食料理，結合時尚異國料理及台灣特色小吃，另加10%服務費',
+		},
+		{
+			'name': '漢來蔬食',
+			'image': './assets/location3.jpg',
+			'description': '位於台中市南屯區公益路二段25號，一間非常有風情的人氣日本料理店。店內滿滿的木質裝潢帶來一種溫暖、放鬆的感覺，在門口處有販售各種日本製食器、鍋具以及日本酒。點餐方式十分現代化，使用平板電腦點餐。主打壽司，因此有許多在其他地方見不到的壽司料理，例如:炙燒松露牛肉握壽司..等等肉類壽司。不想吃壽司也沒關係，還有丼飯、炸物可供選擇。最推薦店內的唐揚雞，非常令人驚艷! 是道地的日本味。外皮薄而不油膩、肉質鮮嫩多汁，一咬下便滿嘴甜蜜的肉汁，讓人食指大動。店內目前有活動，集滿5盤壽司盤即可玩一次戳戳樂，可以得到折價券或者[隱藏版]的!!被做成壽司的可愛動物吊飾。',
+		},
+		{
+			'name': '空也素麵食',
+			'image': './assets/location4.jpg',
+			'description': '輕井澤旗下品牌，打造一個多元化的素食，以麵食為主提供糙米茶(冷、熱)免費飲用，免服務費',
+		}
+	]
+
+
+	const listItem = document.querySelector('.food-list');
+
+
+
+
+	function buildLocations(datas) {
+		const list = document.querySelector('#food-lists');
+		datas.map(data => {
+			//li
+			const li = document.createElement('li');
+			li.classList.add('food-list');
+			//div img
+			const divImg = document.createElement('div');
+			divImg.classList.add('food-list-img')
+			li.appendChild(divImg);
+			//img
+			const img = document.createElement('img');
+			img.src = data.image;
+			divImg.appendChild(img);
+			//div text
+			const divText = document.createElement('div');
+			divText.classList.add('food-list-text');
+			li.appendChild(divText);
+			//h3
+			const h3 = document.createElement('h3');
+			h3.innerText = data.name;
+			divText.appendChild(h3);
+			//p
+			const p = document.createElement('p');
+			p.innerText = data.description;
+			divText.appendChild(p);
+			return list.appendChild(li);
+		});
+
+
+	}
+
+	buildLocations(locations);
+
+
+
+	/**counter = counter++;
+				//create li
+				const listitem = foodContent.createElement("li");
+				//add an unique id to it and some text
+				listitem.setAttribute("id", 'food-list' + counter);
+				listitem.innerText = 'test';
+				//create the img child
+				const listitemImg = foodContent.createElement('img');
+				listitem.appendChild(listitemImg);
+				listitemImg.src(location.image);
+				//run the function showMarker when click on the li
+				const locationClick = document.getElementsById('food-list' + counter);
+				//locationClick.addEventListener('click', showMarker);**/
+
+</script>
+
+</html>
