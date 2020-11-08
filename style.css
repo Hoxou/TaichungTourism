@@ -353,7 +353,7 @@ section{
         width: 400px;
     }
 }
-@media screen and (max-width:1024px){
+@media screen and (max-width:1080px){
     header {
         flex-direction: column;
         padding:10px 0px;
