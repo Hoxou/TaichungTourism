@@ -276,7 +276,7 @@ section{
 
 
 
-@media screen and (max-width:1200px){
+@media screen and (max-width:1024px){
     header {
         flex-direction: column;
         padding:10px 0px;
@@ -294,6 +294,17 @@ section{
         margin:10px 0px;
     }
 
+    .nav-links{
+        display: flex;
+        flex-direction: column;
+        height:100%;
+        width:100%;
+    }
+
+    .nav-link{
+        line-height: 75px;
+        width: 100%;
+    }
 
     .main-title{
         font-size: 75px;
@@ -351,5 +362,10 @@ section{
         width: 500px;
     }
 
-
+@media only screen 
+    and (min-device-width: 375px) 
+    and (max-device-width: 812px) 
+    and (-webkit-min-device-pixel-ratio: 3) { 
+  
+  }
 }
