@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+p{
+    line-height: 2em;
+}
+
 body {
     font-family: 'Noto Serif JP', serif;
     color:#4d5750;
@@ -27,8 +31,9 @@ header{
     flex:1;
 }
 
-.logo-container img{
+.logo-img{
     height:65px;
+    width:auto;
 }
 
 .logo{
@@ -40,10 +45,12 @@ header{
 
 nav{
     flex:2;
+    height:auto;
+    padding-top:3vh;
 }
 
 .nav-links{
-    justify-content:space-evenly;
+    justify-content:space-evenly;;
     list-style: none;
 }
 
@@ -53,6 +60,8 @@ nav{
     padding:10px 30px;
     border:2px solid white;
     color:#4d5750;
+    height:auto;
+    align-self: center;
 }
 
 .nav-link:hover{
@@ -137,6 +146,7 @@ section{
 
 .subtitle-container img {
     height:100px;
+    width:100px;
     position: absolute;
     z-index: -1;
 }
@@ -148,20 +158,31 @@ section{
     line-height: 100px;
     width:100px;
     text-align: center;
-    color:white;
+    color:#79C192;
     -webkit-text-stroke: 0.4px #79C192;
+    margin-bottom: 5%;
 }
 
+
+.food-video{
+    width:60%;
+    margin:0px auto;
+}
+
+.food-video iframe {
+    box-shadow: 1px 1px 10px #7474743f;
+    border-radius: 5px;
+}
 
 
 .food-content{
     display:flex;
-    margin-bottom: 2%;
+    margin: 2% 0;
 }
 
 .list-container{
     flex:1;
-    height: 80vh;
+    height: auto;
     padding-right: 2%;
 }
 
@@ -169,8 +190,8 @@ section{
 #food-lists {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 80vh;
+    justify-content: flex-start;
+    align-content: flex-start;
 } 
 
 .food-list {
@@ -186,6 +207,7 @@ section{
     width:100px;
     height: auto;
     margin-right: 20px;
+
 }
 
 .food-list-img img {
@@ -194,6 +216,7 @@ section{
     width: 100px;
     object-fit: cover;
     border: 2px solid #79C192;
+    background: red;
 }
 
 .food-list-text {
@@ -239,10 +262,10 @@ section{
 }
 
 .event-content-video{
-    width:100%;
+    width:60%;
     display: flex;
     justify-content: center;
-    margin: 50px 0px;
+    margin: 50px auto;
 }
 .event-content-video iframe{
     box-shadow: 1px 1px 10px #7474743f;
@@ -256,7 +279,6 @@ section{
     top:200%;
     width:70%;
     right:0px;
-
 }
 
 .footer{
